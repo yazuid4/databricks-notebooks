@@ -91,7 +91,3 @@ def load_new_json_data(all=False):
     else:
         load_json_file(index)
         index += 1
-
-# COMMAND ----------
-
-download_dataset(data_source_uri, dataset_bookstore)
