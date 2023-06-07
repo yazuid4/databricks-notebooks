@@ -4,11 +4,10 @@
 
 -- COMMAND ----------
 
--- MAGIC %sql
--- MAGIC CREATE OR REFRESH STREAMING LIVE TABLE orders_raw
--- MAGIC COMMENT "The raw books orders, ingested from orders-raw"
--- MAGIC AS SELECT * FROM cloud_files("${datasets_path}/orders-json-raw", "json",
--- MAGIC                              map("cloudFiles.inferColumnTypes", "true"))
+CREATE OR REFRESH STREAMING LIVE TABLE orders_raw
+COMMENT "The raw books orders, ingested from orders-raw"
+AS SELECT * FROM cloud_files("${datasets_path}/orders-json-raw", "json",
+                             map("cloudFiles.inferColumnTypes", "true"))
 
 -- COMMAND ----------
 
@@ -49,15 +48,3 @@ AS
   FROM LIVE.orders_cleaned
   WHERE country = "China"
   GROUP BY customer_id, f_name, l_name, date_trunc("DD", order_timestamp)
-
--- COMMAND ----------
-
-
-
--- COMMAND ----------
-
-
-
--- COMMAND ----------
-
-
