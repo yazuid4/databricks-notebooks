@@ -1,1 +1,1 @@
-# demo-repo
+# databricks notebooks resources
